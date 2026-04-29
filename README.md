@@ -146,15 +146,12 @@ index.html → student-life.html → beyond-academics.html
 index.html → placement.html
 ```
 
-
-<!--
 ## 📱 Responsive Design
 
 This project is fully **responsive** and works seamlessly across:
 - 🖥️ Desktop
 - 📱 Mobile
 - 📟 Tablet
--->
 ---
 
 ## 👨‍💻 Author
