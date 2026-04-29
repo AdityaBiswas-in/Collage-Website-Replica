@@ -9,6 +9,11 @@ A fully responsive, multi-page **College Website Replica** built using pure **HT
 ![Home Page](https://res.cloudinary.com/dhrjq4xgv/image/upload/v1777468076/Screenshot_2026-04-29_182537_boj1rz.png)
 
 ---
+<H1>🚀 Live Demo</H1>  
+
+👉[Click Here ](https://adityabiswas-in.github.io/Collage-Website-Replica/index.html)
+
+--- 
 
 ## ✨ Features
 
