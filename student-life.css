@@ -1,0 +1,159 @@
+/* ===== STUDENT LIFE PAGE STYLES ===== */
+
+/* HERO BANNER - Matching About/Admission Style */
+.sl-hero {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(to right, #c47a2a 0%, #a0341a 35%, #6b0f2b 65%, #4a0a1e 100%);
+  display: flex;
+  align-items: flex-end;
+}
+
+.sl-hero-chevrons {
+  position: absolute;
+  right: 15%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  opacity: 0.25;
+}
+
+.sl-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 40px 60px;
+  flex: 1;
+}
+
+.sl-breadcrumb {
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.sl-breadcrumb a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sl-hero-content h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* CARDS SECTION */
+.sl-cards-section {
+  padding: 80px 60px;
+  background: #fff;
+}
+
+.sl-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sl-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.sl-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.sl-card-img {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.sl-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sl-card:hover .sl-card-img img {
+  transform: scale(1.1);
+}
+
+.sl-card-text {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.sl-card-text h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #e85d26;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.sl-card-text p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.read-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  background: #e85d26;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+
+.read-more-btn:hover {
+  background: #2d0a15;
+}
+
+.btn-arrow {
+  display: inline-block;
+  background: rgba(0,0,0,0.2);
+  padding: 0 8px;
+  margin-left: 10px;
+  height: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sl-hero {
+    height: 180px;
+  }
+  .sl-hero-content {
+    padding: 0 0 30px 30px;
+  }
+  .sl-hero-content h1 {
+    font-size: 32px;
+  }
+  .sl-cards-section {
+    padding: 50px 20px;
+  }
+}

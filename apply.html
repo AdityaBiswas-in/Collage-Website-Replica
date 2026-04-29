@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now | Bhawanipur Global Campus</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Title Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dhrjq4xgv/image/upload/v1777398471/image_ga0hpf.png" />
+  
+  <!-- Social Media Preview (Open Graph) -->
+  <meta property="og:title" content="Bhawanipur Global Campus" />
+  <meta property="og:image" content="https://res.cloudinary.com/dhrjq4xgv/image/upload/v1777398471/image_ga0hpf.png" />
+  <meta property="og:type" content="website" />
+  <style>
+    .apply-hero {
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--orange) 100%);
+      padding: 100px 40px 60px;
+      text-align: center;
+      color: #fff;
+    }
+    .apply-hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; }
+    .apply-hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+    .apply-container {
+      max-width: 900px;
+      margin: -50px auto 80px;
+      background: #fff;
+      padding: 60px;
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-group { margin-bottom: 25px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: var(--orange); outline: none; }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    /* Shimmer effect on the button */
+    .submit-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 20%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(30deg);
+      transition: none;
+    }
+    .submit-btn:hover::after {
+      left: 140%;
+      transition: all 0.6s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--orange-dark);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(232, 93, 38, 0.3);
+    }
+    .submit-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    /* Pulse animation when form is valid (if all required are filled) */
+    #applicationForm:valid .submit-btn {
+      animation: readyPulse 2s infinite;
+    }
+
+    @keyframes readyPulse {
+      0% { box-shadow: 0 0 0 0 rgba(232, 93, 38, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(232, 93, 38, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(232, 93, 38, 0); }
+    }
+
+    .form-section-title { font-size: 20px; font-weight: 800; color: var(--maroon); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    .form-section-title:first-child { margin-top: 0; }
+
+    /* Submission Effect Styles */
+    #form-submit-trigger { display: none; }
+    
+    .success-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .success-modal {
+      background: #fff;
+      padding: 60px 40px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: #4bb543;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 30px;
+      box-shadow: 0 10px 20px rgba(75, 181, 67, 0.3);
+    }
+
+    .success-modal h2 {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--maroon);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .success-modal p {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .close-success {
+      display: inline-block;
+      padding: 15px 40px;
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .close-success:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+    /* The Effect Trigger */
+    #form-submit-trigger:checked ~ .success-overlay { display: flex; }
+    #form-submit-trigger:checked ~ .success-overlay .success-modal { transform: scale(1); opacity: 1; }
+
+    @media (max-width: 768px) {
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .apply-container { padding: 30px; margin-top: -30px; }
+      .success-modal { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+  <div class="top-bar-marquee-wrap">
+    <div class="top-bar-marquee">
+      <span>
+        &#128227;&nbsp; ADMISSIONS OPEN 2026-27 — Apply Now for UG & PG Programmes! 
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        &#128188;&nbsp; PLACEMENT DRIVE 2026 — Top Recruiters On Campus This June. 
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        &#11088;&nbsp; BGC Awarded NAAC A+ Accreditation — A Milestone of Excellence.
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <a href="index.html" style="text-decoration:none;">
+        <div class="brand-name"><span>Bhawanipur</span><br>Global Campus</div>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">ABOUT</a></li>
+      <li>
+        <a href="programme.html">PROGRAMME <span class="arrow">&#9660;</span></a>
+        <div class="dropdown">
+          <div class="dropdown-item has-sub">
+            Course <span class="dl-arrow">&#8250;</span>
+            <div class="dropdown-sub">
+              <a href="programme.html">UG</a>
+              <a href="programme.html">PG</a>
+            </div>
+          </div>
+          <div class="dropdown-item has-sub">
+            Schools <span class="dl-arrow">&#8250;</span>
+            <div class="dropdown-sub wide-sub">
+              <a href="programme.html">School of Business and Management</a>
+              <a href="programme.html">School of Pharmacy</a>
+              <a href="programme.html">School of Allied Health</a>
+              <a href="programme.html">School of Media</a>
+              <a href="programme.html">School of Design</a>
+              <a href="programme.html">School of Hospitality</a>
+              <a href="programme.html">School of Advanced Computing</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="admission.html">ADMISSIONS <span class="arrow">&#9660;</span></a></li>
+      <li><a href="student-life.html">STUDENT LIFE <span class="arrow">&#9660;</span></a></li>
+      <li><a href="faculty.html">FACULTY <span class="arrow">&#9660;</span></a></li>
+      <li><a href="placement.html">INTERNSHIP &amp; PLACEMENT <span class="arrow">&#9660;</span></a></li>
+      <li><a href="beyond-academics.html">BEYOND ACADEMICS <span class="arrow">&#9660;</span></a></li>
+      <li><a href="apply.html" class="nav-apply">APPLY NOW</a></li>
+    </ul>
+  </nav>
+  <div class="naac-bar">
+    <span class="naac-badge">NAAC</span>
+    <span>&#11088; +</span>
+  </div>
+</header>
+
+<section class="apply-hero">
+  <h1>Join Our Legacy</h1>
+  <p>Take the first step towards a global career. Fill out the application form below to begin your journey at Bhawanipur Global Campus.</p>
+</section>
+
+<div class="apply-container">
+  <form id="applicationForm">
+    <div class="form-section-title">Personal Details</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="email@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+    </div>
+
+    <div class="form-section-title">Academic Preferences</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Course Level</label>
+        <select required>
+          <option value="">Select Level</option>
+          <option>Undergraduate (UG)</option>
+          <option>Postgraduate (PG)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CSS-ONLY CONNECTED DROPDOWNS -->
+    <style>
+      .school-selection { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px; }
+      .school-option { 
+        padding: 12px; 
+        border: 1px solid #ddd; 
+        font-size: 13px; 
+        font-weight: 600; 
+        text-align: center; 
+        cursor: pointer; 
+        transition: all 0.2s;
+        background: #fdfdfd;
+        display: block;
+      }
+      
+      /* Radio states controlling Label styles */
+      #school-biz:checked ~ .school-selection label[for="school-biz"],
+      #school-comp:checked ~ .school-selection label[for="school-comp"],
+      #school-pharm:checked ~ .school-selection label[for="school-pharm"],
+      #school-media:checked ~ .school-selection label[for="school-media"],
+      #school-design:checked ~ .school-selection label[for="school-design"],
+      #school-hosp:checked ~ .school-selection label[for="school-hosp"] {
+        background: var(--maroon); 
+        color: #fff; 
+        border-color: var(--maroon); 
+      }
+
+      .course-container { display: none; margin-top: 10px; }
+      
+      /* Radio states controlling Course Dropdown visibility */
+      #school-biz:checked ~ #biz-courses,
+      #school-comp:checked ~ #comp-courses,
+      #school-pharm:checked ~ #pharm-courses,
+      #school-media:checked ~ #media-courses,
+      #school-design:checked ~ #design-courses,
+      #school-hosp:checked ~ #hosp-courses { display: block; animation: fadeIn 0.3s; }
+
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <div class="form-group" style="display:block; margin-bottom:10px;">
+      <label style="display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px;">Select School of Interest</label>
+      
+      <!-- Inputs moved out to be siblings of the course containers -->
+      <input type="radio" name="school_choice" id="school-biz" class="school-radio" style="display:none;" required>
+      <input type="radio" name="school_choice" id="school-comp" class="school-radio" style="display:none;">
+      <input type="radio" name="school_choice" id="school-pharm" class="school-radio" style="display:none;">
+      <input type="radio" name="school_choice" id="school-media" class="school-radio" style="display:none;">
+      <input type="radio" name="school_choice" id="school-design" class="school-radio" style="display:none;">
+      <input type="radio" name="school_choice" id="school-hosp" class="school-radio" style="display:none;">
+
+      <div class="school-selection">
+        <label for="school-biz" class="school-option">Business & Management</label>
+        <label for="school-comp" class="school-option">Advanced Computing</label>
+        <label for="school-pharm" class="school-option">Pharmacy</label>
+        <label for="school-media" class="school-option">Media Science</label>
+        <label for="school-design" class="school-option">Design</label>
+        <label for="school-hosp" class="school-option">Hospitality & Culinary</label>
+      </div>
+
+      <!-- Course Dropdowns (Now true siblings of the radio inputs) -->
+      <div id="biz-courses" class="course-container">
+        <label style="display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px;">Select Business Course</label>
+        <select name="course_biz">
+          <option value="">Select Course</option>
+          <option>BBA (Bachelor of Business Administration)</option>
+          <option>BBA - Business Analytics</option>
+          <option>BBA - Entrepreneurship</option>
+          <option>MBA (Master of Business Administration)</option>
+        </select>
+      </div>
+
+      <div id="comp-courses" class="course-container">
+        <label style="display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px;">Select Computing Course</label>
+        <select name="course_comp">
+          <option value="">Select Course</option>
+          <option>BCA (Bachelor of Computer Applications)</option>
+          <option>BCA - AI & Machine Learning</option>
+          <option>B.Sc. Data Science</option>
+          <option>MCA (Master of Computer Applications)</option>
+        </select>
+      </div>
+
+      <div id="pharm-courses" class="course-container">
+        <label style="display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px;">Select Pharmacy Course</label>
+        <select name="course_pharm">
+          <option value="">Select Course</option>
+          <option>Bachelor of Pharmacy (B.Pharm)</option>
+          <option>Master of Pharmacy (M.Pharm)</option>
+        </select>
+      </div>
+
+      <div id="media-courses" class="course-container">
+        <label style="display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px;">Select Media Course</label>
+        <select name="course_media">
+          <option value="">Select Course</option>
+          <option>B.Sc. Media Science</option>
+          <option>M.Sc. Media Science</option>
+        </select>
+      </div>
+
+      <div id="design-courses" class="course-container">
+        <label style="display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px;">Select Design Course</label>
+        <select name="course_design">
+          <option value="">Select Course</option>
+          <option>B.Sc. Fashion Design</option>
+          <option>B.Sc. Interior Design</option>
+          <option>B.Sc. Multimedia & Graphics</option>
+        </select>
+      </div>
+
+      <div id="hosp-courses" class="course-container">
+        <label style="display: block; font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: 8px;">Select Hospitality Course</label>
+        <select name="course_hosp">
+          <option value="">Select Course</option>
+          <option>B.Sc. Culinary Science</option>
+          <option>B.Sc. Hospitality Administration</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-section-title">Last Qualification</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>School/College Name</label>
+        <input type="text" placeholder="Enter institution name" required>
+      </div>
+      <div class="form-group">
+        <label>Percentage / CGPA</label>
+        <input type="text" placeholder="e.g. 85%" required>
+      </div>
+    </div>
+
+    <label for="form-submit-trigger" class="submit-btn" style="display:block; text-align:center;">SUBMIT APPLICATION</label>
+  </form>
+</div>
+
+<!-- Hidden Trigger for Success Modal (Moved outside to be a sibling of overlay) -->
+<input type="checkbox" id="form-submit-trigger" style="display:none;">
+
+<!-- SUCCESS MODAL OVERLAY -->
+<div class="success-overlay">
+  <div class="success-modal">
+    <div class="success-icon">✓</div>
+    <h2>Application Received!</h2>
+    <p>Congratulations! Your application has been successfully submitted to Bhawanipur Global Campus. Our admissions desk will review your details and contact you within 2-3 working days.</p>
+    <a href="apply.html" class="close-success">CLOSE WINDOW</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="brand">Bhawanipur <span>Global Campus</span></div>
+        <div class="sub">Empowering Future Leaders</div>
+      </div>
+      <div class="footer-contact" style="margin-top:20px;">
+        <span>&#128222; 9073328474</span>
+        <span>&#128231; admissions@bgc.edu.in</span>
+        <span>&#128205; Kolkata, West Bengal, India</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programme.html">Programmes</a></li>
+        <li><a href="apply.html">Apply Now</a></li>
+        <li><a href="student-life.html">Student Life</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Schools</h4>
+      <ul>
+        <li><a href="programme.html">Business</a></li>
+        <li><a href="programme.html">Computing</a></li>
+        <li><a href="programme.html">Pharmacy</a></li>
+        <li><a href="programme.html">Media</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/bhawanipurglobalcampus" target="_blank" rel="noopener noreferrer" class="social-icon" title="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/bhawanipur-global-campus" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://www.instagram.com/bgc_kolkata" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

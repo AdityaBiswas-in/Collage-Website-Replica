@@ -1,0 +1,247 @@
+/* ===== PROGRAMME PAGE STYLES ===== */
+
+/* HERO BANNER */
+.prog-hero {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: linear-gradient(to right, #d48a3a 0%, #ba4f23 35%, #8c1f08 65%, #6b0f2b 100%);
+  display: flex;
+  align-items: center;
+}
+
+/* CSS chevron/arrow shapes on the right */
+.prog-hero-chevrons {
+  position: absolute;
+  right: 280px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  opacity: 0.35;
+}
+.prog-hero-chevrons .chevron {
+  width: 0;
+  height: 0;
+  border-top: 140px solid transparent;
+  border-bottom: 140px solid transparent;
+  margin-left: -20px;
+}
+.prog-hero-chevrons .c1 { border-left: 80px solid #c45a1f; }
+.prog-hero-chevrons .c2 { border-left: 80px solid #a33010; }
+.prog-hero-chevrons .c3 { border-left: 80px solid #8c1f08; }
+
+.prog-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 0 60px;
+  flex: 1;
+}
+.prog-hero-content h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* People image anchored bottom-right */
+.prog-hero-people {
+  position: absolute;
+  right: 80px;
+  bottom: 0;
+  z-index: 2;
+  height: 240px;
+}
+.prog-hero-people img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* EXPLORE OUR PROGRAMS */
+.explore-prog {
+  padding: 50px 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.explore-prog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.explore-prog-header h2 {
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #222;
+}
+.prog-level-btns {
+  display: flex;
+  gap: 16px;
+}
+.level-btn {
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid #e85d26;
+  cursor: pointer;
+  background: transparent;
+  color: #e85d26;
+  transition: all 0.2s;
+}
+.level-btn.active {
+  background: #2b0312; /* Dark maroonish black */
+  color: #fff;
+  border-color: #2b0312;
+}
+
+/* SCHOOLS TABS ROW */
+.prog-schools-tabs {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 16px 0;
+  margin-bottom: 40px;
+}
+.school-tab {
+  font-size: 11px;
+  font-weight: 700;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.school-tab .tab-icon {
+  font-size: 14px;
+}
+.school-tab:hover {
+  color: #e85d26;
+}
+
+/* TAB TOGGLING LOGIC (Pure CSS) */
+/* HIDE RADIOS */
+.tab-radio, .level-radio, .pg-tab-radio {
+  display: none;
+}
+
+/* Level Button Active State */
+#level-ug:checked ~ .explore-prog .explore-prog-header [for="level-ug"],
+#level-ug:checked ~ .explore-prog .explore-prog-header [for="level-ug"],
+#level-pg:checked ~ .explore-prog .explore-prog-header [for="level-pg"] {
+  background: #2b0312;
+  color: #fff;
+  border-color: #2b0312;
+}
+
+/* Level Content Visibility */
+#level-ug:checked ~ .explore-prog .pg-only,
+#level-ug:checked ~ .explore-programs .pg-grid-container {
+  display: none;
+}
+#level-pg:checked ~ .explore-prog .ug-only,
+#level-pg:checked ~ .explore-programs .ug-grid-container {
+  display: none;
+}
+
+/* SCHOOL TABS ACTIVE STYLING (UG) */
+#tab-business:checked ~ .explore-prog .prog-schools-tabs [for="tab-business"],
+#tab-pharmacy:checked ~ .explore-prog .prog-schools-tabs [for="tab-pharmacy"],
+#tab-allied:checked ~ .explore-prog .prog-schools-tabs [for="tab-allied"],
+#tab-computing:checked ~ .explore-prog .prog-schools-tabs [for="tab-computing"],
+#tab-media:checked ~ .explore-prog .prog-schools-tabs [for="tab-media"],
+#tab-design:checked ~ .explore-prog .prog-schools-tabs [for="tab-design"],
+#tab-hospitality:checked ~ .explore-prog .prog-schools-tabs [for="tab-hospitality"] {
+  color: #e85d26;
+}
+
+/* SCHOOL TABS ACTIVE STYLING (PG) */
+#pg-tab-business:checked ~ .explore-prog .prog-schools-tabs [for="pg-tab-business"],
+#pg-tab-pharmacy:checked ~ .explore-prog .prog-schools-tabs [for="pg-tab-pharmacy"],
+#pg-tab-allied:checked ~ .explore-prog .prog-schools-tabs [for="pg-tab-allied"],
+#pg-tab-computing:checked ~ .explore-prog .prog-schools-tabs [for="pg-tab-computing"],
+#pg-tab-media:checked ~ .explore-prog .prog-schools-tabs [for="pg-tab-media"],
+#pg-tab-design:checked ~ .explore-prog .prog-schools-tabs [for="pg-tab-design"],
+#pg-tab-hospitality:checked ~ .explore-prog .prog-schools-tabs [for="pg-tab-hospitality"] {
+  color: #e85d26;
+}
+
+/* EXPLORE PROGRAMS GRID */
+.explore-programs {
+  padding: 0 60px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.programs-grid {
+  display: none; /* Hidden by default, toggled via radio buttons */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* SHOW ACTIVE GRIDS (UG) - Combined with Level for priority */
+#level-ug:checked ~ #tab-business:checked ~ .explore-programs #business-grid,
+#level-ug:checked ~ #tab-pharmacy:checked ~ .explore-programs #pharmacy-grid,
+#level-ug:checked ~ #tab-allied:checked ~ .explore-programs #allied-grid,
+#level-ug:checked ~ #tab-computing:checked ~ .explore-programs #computing-grid,
+#level-ug:checked ~ #tab-media:checked ~ .explore-programs #media-grid,
+#level-ug:checked ~ #tab-design:checked ~ .explore-programs #design-grid,
+#level-ug:checked ~ #tab-hospitality:checked ~ .explore-programs #hospitality-grid {
+  display: grid;
+}
+
+/* SHOW ACTIVE GRIDS (PG) - Combined with Level for priority */
+#level-pg:checked ~ #pg-tab-business:checked ~ .explore-programs #pg-business-grid,
+#level-pg:checked ~ #pg-tab-pharmacy:checked ~ .explore-programs #pg-pharmacy-grid,
+#level-pg:checked ~ #pg-tab-allied:checked ~ .explore-programs #pg-allied-grid,
+#level-pg:checked ~ #pg-tab-computing:checked ~ .explore-programs #pg-computing-grid,
+#level-pg:checked ~ #pg-tab-media:checked ~ .explore-programs #pg-media-grid,
+#level-pg:checked ~ #pg-tab-design:checked ~ .explore-programs #pg-design-grid,
+#level-pg:checked ~ #pg-tab-hospitality:checked ~ .explore-programs #pg-hospitality-grid {
+  display: grid;
+}
+.program-card {
+  background: #fff;
+  border-bottom: 2px solid #eaeaea; /* Light bottom border for separation */
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.program-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.program-card-content {
+  padding: 20px 0;
+}
+.program-card-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.program-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  color: #555;
+}
+.program-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+

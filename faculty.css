@@ -1,0 +1,229 @@
+/* ===== FACULTY PAGE STYLES ===== */
+
+/* HERO - Precise Split Design */
+.fac-hero {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: #a0341a; /* Fallback */
+  display: flex;
+  align-items: center;
+}
+
+/* Left colored bar */
+.fac-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background: #c47a2a;
+  z-index: 1;
+}
+
+/* Diagonal Background Shapes */
+.fac-hero-bg-shapes {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 0;
+  height: 100%;
+  background: #a0341a;
+  overflow: hidden;
+}
+
+.fac-hero-bg-shapes::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: 15%;
+  width: 100%;
+  height: 200%;
+  background: rgba(0,0,0,0.1);
+  transform: rotate(-35deg);
+}
+
+.fac-hero-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  min-width: 45%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.fac-hero-content {
+  position: relative;
+  z-index: 3;
+  padding-left: 3%;
+  width: 100%;
+}
+
+.fac-hero-content h1 {
+  color: #fff;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* MEET OUR FACULTY SECTION */
+.fac-section {
+  background: #f8f5f0;
+}
+
+.fac-section-header {
+  background: #ff5733; /* Vibrant Orange */
+  padding: 50px 60px 0;
+}
+
+.fac-section-header h2 {
+  color: #fff;
+  font-size: 38px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+/* SCHOOL TABS */
+.fac-tabs-container {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  overflow-x: auto;
+}
+
+.fac-tabs { 
+  display: flex; 
+  gap: 0; 
+  min-width: max-content;
+}
+
+.fac-tab-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 24px;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 4px solid transparent;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fac-tab-label:hover { 
+  color: #fff; 
+  background: rgba(255,255,255,0.05);
+}
+
+.fac-tab-label svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.9;
+}
+
+#tab-bm:checked ~ .fac-section .fac-tabs label[for="tab-bm"],
+#tab-ph:checked ~ .fac-section .fac-tabs label[for="tab-ph"],
+#tab-ah:checked ~ .fac-section .fac-tabs label[for="tab-ah"],
+#tab-ac:checked ~ .fac-section .fac-tabs label[for="tab-ac"],
+#tab-me:checked ~ .fac-section .fac-tabs label[for="tab-me"],
+#tab-ds:checked ~ .fac-section .fac-tabs label[for="tab-ds"],
+#tab-ho:checked ~ .fac-section .fac-tabs label[for="tab-ho"] {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* FACULTY GRIDS */
+.fac-grid-wrap { 
+  padding: 60px; 
+}
+
+.fac-grid {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+#tab-bm:checked ~ .fac-section #grid-bm,
+#tab-ph:checked ~ .fac-section #grid-ph,
+#tab-ah:checked ~ .fac-section #grid-ah,
+#tab-ac:checked ~ .fac-section #grid-ac,
+#tab-me:checked ~ .fac-section #grid-me,
+#tab-ds:checked ~ .fac-section #grid-ds,
+#tab-ho:checked ~ .fac-section #grid-ho { 
+  display: grid; 
+}
+
+/* Hide functional radios */
+.fac-tab-radio {
+  display: none;
+}
+
+/* FACULTY CARD */
+.fac-card {
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border-bottom: 4px solid #ff5733;
+}
+
+.fac-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.fac-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.fac-card-info {
+  padding: 20px;
+}
+
+.fac-card-info h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+
+.fac-card-info .fac-title {
+  font-size: 13px;
+  color: #ff5733;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.fac-card-info .fac-qual {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .fac-hero-content h1 { font-size: 48px; }
+  .fac-hero::before { width: 25%; }
+}
+
+@media (max-width: 768px) {
+  .fac-hero { height: 200px; }
+  .fac-hero-img { width: 100%; opacity: 0.4; }
+  .fac-hero::before { width: 30%; }
+  .fac-hero-content h1 { font-size: 36px; }
+  .fac-section-header { padding: 40px 20px 0; }
+  .fac-section-header h2 { font-size: 28px; }
+  .fac-grid-wrap { padding: 40px 20px; }
+  .fac-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+}
+

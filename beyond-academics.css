@@ -1,0 +1,224 @@
+/* ===== BEYOND ACADEMICS PAGE STYLES ===== */
+
+/* HERO */
+.beyond-hero {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.beyond-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.beyond-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.beyond-hero-content h1 {
+  font-size: 56px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.beyond-hero-content p {
+  font-size: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* SECTION INTRO */
+.beyond-intro {
+  padding: 80px 60px;
+  text-align: center;
+  background: #fff;
+}
+
+.beyond-intro h2 {
+  font-size: 38px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.beyond-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* CLUBS & ACTIVITIES GRID */
+.activities-grid {
+  padding: 0 60px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  background: #fff;
+}
+
+.activity-card {
+  position: relative;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+}
+
+.activity-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  color: #fff;
+}
+
+.activity-overlay h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.activity-overlay p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* FEATURED EVENT SECTION */
+.featured-event {
+  padding: 100px 60px;
+  background: #fdf6f2;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.event-image {
+  flex: 1;
+  min-width: 400px;
+  position: relative;
+}
+
+.event-image img {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 20px 20px 0 rgba(255,87,51,0.1);
+}
+
+.event-content {
+  flex: 1;
+  min-width: 400px;
+}
+
+.event-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #ff5733;
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.event-content h2 {
+  font-size: 48px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.event-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* GLOBAL OUTREACH */
+.outreach-banner {
+  padding: 80px 60px;
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+}
+
+.outreach-banner h2 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.outreach-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.outreach-item {
+  width: 250px;
+}
+
+.outreach-item h4 {
+  font-size: 48px;
+  color: #ff5733;
+  margin-bottom: 10px;
+}
+
+.outreach-item p {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .beyond-hero h1 { font-size: 32px; }
+  .beyond-intro, .activities-grid, .featured-event, .outreach-banner { padding: 50px 20px; }
+  .event-image, .event-content { min-width: 100%; }
+}

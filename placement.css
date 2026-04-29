@@ -1,0 +1,225 @@
+/* ===== PLACEMENT PAGE STYLES ===== */
+
+/* HERO */
+.place-hero {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.place-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.place-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.place-hero-content h1 {
+  font-size: 52px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.place-hero-content p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* STATS BAR */
+.place-stats {
+  background: #fff;
+  padding: 60px 20px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 42px;
+  font-weight: 900;
+  color: #ff5733;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* RECRUITERS SECTION */
+.recruiters-section {
+  padding: 80px 60px;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.recruiters-section h2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.recruiters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.recruiter-logo {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recruiter-logo:hover {
+  transform: scale(1.05);
+}
+
+.recruiter-logo img {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.recruiter-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* PLACEMENT PROCESS */
+.process-section {
+  padding: 100px 60px;
+  background: #fff;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.process-card {
+  padding: 40px;
+  background: #fdf6f2;
+  border-left: 5px solid #ff5733;
+  position: relative;
+}
+
+.process-number {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  font-weight: 900;
+  color: rgba(255,87,51,0.1);
+}
+
+.process-card h3 {
+  font-size: 22px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.process-card p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* HIGHLIGHTS SECTION */
+.place-highlights {
+  padding: 80px 60px;
+  background: #ff5733;
+  color: #fff;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.highlight-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.highlight-content h2 {
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.highlight-list {
+  list-style: none;
+}
+
+.highlight-list li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.highlight-list li svg {
+  width: 24px;
+  height: 24px;
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .place-hero { height: 250px; }
+  .place-hero-content h1 { font-size: 32px; }
+  .recruiters-section, .process-section, .place-highlights { padding: 50px 20px; }
+  .place-stats { margin-top: -30px; gap: 20px; }
+}
